@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Akila Sakthivel",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 10.2, "left": 229.8, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -104.1, "left": 389.5, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -112.8,
+      "left": 299.4,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -90, "left": 176.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -34.45,
+      "left": 220.8,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "bz1:1", "uno:GND.1", "black", [ "v19.2", "h19.2" ] ],
+    [ "led1:C", "uno:GND.1", "black", [ "v48", "h154" ] ],
+    [ "ultrasonic1:GND", "uno:GND.1", "black", [ "v9.6", "h-145.2" ] ],
+    [ "r1:2", "uno:8", "green", [ "v19.2", "h123.6" ] ],
+    [ "bz1:2", "uno:7", "green", [ "v9.6", "h86" ] ],
+    [ "ultrasonic1:ECHO", "uno:6", "green", [ "v9.6", "h-0.8" ] ],
+    [ "ultrasonic1:TRIG", "uno:5", "green", [ "v9.6", "h-29.2" ] ],
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "v9.6", "h67.2", "v211.2", "h-134.4" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Akila Sakthivel",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 48.6, "left": -10.2, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 204.8,
+      "left": 298.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 94.7, "left": 307, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -63.2, "left": 155.82, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -22.8, "left": 3.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 13.55,
+      "left": 67.2,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pir1:GND", "uno:GND.1", "black", [ "v9.6", "h-105.86" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v19.2", "h86.8" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "uno:8", "green", [ "v0", "h37.2", "v28.8" ] ],
+    [ "pir1:VCC", "uno:5V", "red", [ "v9.6", "h86.4", "v240", "h-134.4" ] ],
+    [ "pir1:OUT", "uno:2", "green", [ "v9.6", "h-0.14" ] ],
+    [ "pot1:GND", "uno:GND.3", "black", [ "v0", "h-67.2", "v105.6", "h-96" ] ],
+    [ "pot1:SIG", "uno:A1", "green", [ "v28.8", "h-67.6", "v67.2", "h-76.8" ] ],
+    [ "pot1:VCC", "uno:5V", "red", [ "v28.8", "h-77.6", "v76.8", "h-134.4", "v-19.2", "h9.6" ] ],
+    [ "ldr1:AO", "uno:A0", "green", [ "h-12.4", "v38.9", "h-86.4" ] ],
+    [ "ldr1:GND", "uno:GND.2", "black", [ "h-12.4", "v57.8", "h-124.8" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h6.8", "v38.2", "h-163.2" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "author": "Akila Sakthivel",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -9, "left": 105, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 121.2,
+      "left": -44.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -32.4,
+      "left": -44.2,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 44.4,
+      "left": -44.2,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 176.75,
+      "left": 0,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-resistor", "id": "r2", "top": 99.95, "left": 0, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 23.15, "left": 0, "attrs": { "value": "220" } },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -7.88,
+      "left": 432.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -112.8,
+      "left": 165,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -121.8,
+      "left": 392.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": 135.9,
+      "left": 422.4,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "bz1:2", "uno:7", "green", [ "v0", "h95.6" ] ],
+    [ "bz1:1", "uno:GND.1", "black", [ "v9.6", "h28.8" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "h9.6", "v67.2", "h19.2", "v249.6", "h-134.4" ] ],
+    [ "pir1:VCC", "uno:5V", "red", [ "h-38.4", "v211.2", "h-124.8" ] ],
+    [ "gas1:VCC", "uno:5V", "red", [ "h-28.8", "v87.3", "h-124.8" ] ],
+    [ "pir1:GND", "uno:GND.1", "black", [ "h-48", "v-67.46", "h-163.2" ] ],
+    [ "led2:C", "uno:GND.2", "green", [ "v0", "h-38", "v220.8", "h345.6" ] ],
+    [ "led3:C", "uno:GND.2", "green", [ "v0", "h-28.4", "v134.4", "h336" ] ],
+    [ "led1:C", "uno:GND.2", "green", [ "v48", "h307.6" ] ],
+    [ "r1:2", "uno:10", "green", [ "v0", "h37.2", "v-201.6", "h163.2" ] ],
+    [ "r2:2", "uno:9", "green", [ "v0", "h27.6", "v-124.8", "h182.4" ] ],
+    [ "r3:2", "uno:8", "green", [ "v0", "h18", "v-48", "h201.6" ] ],
+    [ "led2:A", "r3:1", "green", [ "v0" ] ],
+    [ "led3:A", "r2:1", "green", [ "v0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "gas1:GND", "uno:GND.3", "black", [ "h-28.8", "v48.8", "h-115.2" ] ],
+    [ "gas1:AOUT", "uno:A0", "green", [ "h-19.2", "v38.4", "h-86.4" ] ],
+    [ "pir1:OUT", "uno:2", "green", [ "h-38.4", "v-67.34", "h-57.6" ] ],
+    [ "dht1:SDA", "uno:3", "green", [ "h-28.8", "v0.1" ] ],
+    [ "dht1:GND", "uno:GND.1", "black", [ "h-134.4" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "author": "Akila Sakthivel",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 217.2,
+      "left": 339.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 282.35,
+      "left": 230.4,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -124.5, "left": 311.4, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 60.8,
+      "left": 346.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -120.8,
+      "left": 472.62,
+      "attrs": {}
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 230.6, "left": 460.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [ "v230.4", "h-163.2" ] ],
+    [ "dht1:SDA", "uno:3", "green", [ "v28.8", "h-47.9", "v-38.4", "h-67.2" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v48", "h-38.4", "v192", "h-144" ] ],
+    [ "ldr1:AO", "uno:A0", "green", [ "h-60.4", "v134.9", "h-86.4" ] ],
+    [ "ldr1:GND", "uno:GND.2", "black", [ "h-41.2", "v134.6", "h-134.4" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h-22", "v105.4", "h-172.8" ] ],
+    [ "pir1:OUT", "uno:2", "green", [ "v19.2", "h-115.34", "v-172.8", "h-163.2" ] ],
+    [ "pir1:VCC", "uno:5V", "red", [ "v76.8", "h-211.2", "v153.6", "h-134.4" ] ],
+    [
+      "pir1:GND",
+      "uno:GND.3",
+      "black",
+      [ "v48", "h-173.06", "v9.6", "h-57.6", "v220.8", "h-124.8" ]
+    ],
+    [ "led1:A", "r1:2", "green", [ "v0" ] ],
+    [ "r1:1", "uno:8", "green", [ "v-9.6", "h-297.6", "v-297.6", "h240" ] ],
+    [ "led1:C", "uno:GND.3", "black", [ "v9.6", "h-172.4", "v-19.2" ] ],
+    [ "relay1:VCC", "uno:5V", "red", [ "h-67.2", "v-38.4", "h-230.4" ] ],
+    [ "relay1:GND", "uno:GND.3", "black", [ "h-57.6", "v-48.4", "h-220.8" ] ],
+    [ "relay1:IN", "uno:7", "green", [ "h-76.8", "v47.8", "h-480", "v-374.4", "h38.4" ] ]
+  ],
+  "dependencies": {}
+}
